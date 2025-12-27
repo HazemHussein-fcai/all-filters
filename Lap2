@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+class Counter {
+protected:
+    int count ;
+public:
+    Counter(){count=0;}
+    Counter(int c){ count = c;}
+    int getCount(){
+        return count;
+    }
+    void increment(int g){
+        count+=g;
+      }
+};
+class CounterDecV2:public Counter {
+public:
+    CounterDecV2() : Counter(){};
+    CounterDecV2(int c):Counter(c){};
+    void decrement(int r){
+        count-=r;
+    }
+};
+
+int main() {
+    CounterDecV2 num(20);
+    num.increment(6);
+    num.decrement(2);
+    cout<<"Count :"  <<num.getCount()<<endl;
+    return 0;
+}
+
+
+
